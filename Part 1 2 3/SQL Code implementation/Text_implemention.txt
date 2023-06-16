@@ -1,0 +1,65 @@
+CREATE table Department(Department_ID integer constraint D_pk primary key, Department_Name varchar2(25) constraint deptname unique, Manager_ID integer);
+CREATE table Employee(Employee_ID integer constraint e_pk primary key, Fname varchar2(15), Lname varchar2(15), Dob date, salary number(8,2), Address varchar2(25), Sex varchar2(7), Supervisor_ID constraint svf references Employee (Employee_ID) on delete set null, Department_ID constraint dif references Department(Department_ID) on delete set null);
+ALTER table Department add constraint dc FOREIGN KEY (Manager_ID) references Employee(Employee_ID) on delete set null;
+CREATE table Room(Room_ID integer constraint R_pk primary key, Location varchar2(25));
+CREATE table Doctor(Doctor_ID integer constraint Do_pk primary key, Fname varchar2(15), Lname varchar2(15), Dob date, salary number(8,2), Address varchar2(25), Sex varchar2(7), Room_ID constraint rif references Room(Room_ID) on delete set null, Department_ID constraint deptif references Department(Department_ID) on delete set null);
+CREATE table Patient(Patient_ID integer constraint Patient_pk primary key, Fname varchar2(15), Lname varchar2(15), Dob date, Address varchar2(25), Sex varchar2(7));
+CREATE table Attends(Patient_ID constraint pifk references Patient(Patient_ID) on delete set null, Doctor_ID constraint difk references Doctor(Doctor_ID) on delete set null, constraint Attends_pk primary key (Patient_ID,Doctor_ID));
+
+
+INSERT into Department values(1, 'Medical Department', null);
+INSERT into Department values(2, 'Medical Record Department', null); 
+INSERT into Department values(3, 'Paramedical Department', null); 
+INSERT into Department values(4, 'Pharmacy Department', null);
+
+INSERT into Employee values(1, 'Naif', 'Askul', '2-APR-1990', 30000, 'Jeddah,Al Sanabel', 'Male', null, 1);
+INSERT into Employee values(2,'Faisal', 'Balamash', '1-MAR-1995', 25000, 'Jeddah,Al Sharafeyah', 'Male', null, 1);
+INSERT into Employee values(3,'Tareq', 'Bajaber', '15-JUN-1993', 26000, 'Jeddah,Al Safa', 'Male', null, 2);
+INSERT into Employee values(4,'Nawaf', 'Alghamdi', '30-SEP-1993', 24000, 'Jeddah,Al Safa', 'Male', null, 2);
+INSERT into Employee values(5,'Ahmed', 'Alghamdi', '2-APR-1990', 15000, 'Jeddah,Al Sanabel', 'Male', null, 2);
+INSERT into Employee values(6,'Ahmed', 'Alzahrani', '2-APR-1991', 13000, 'Jeddah,Al naseem', 'Male', null, 3);
+INSERT into Employee values(7,'Sarah', 'Alharbi', '2-APR-1991', 3000, 'Jeddah,Al naseem', 'Female', null, 4);
+INSERT into Employee values(8,'Rahaf', 'Alzahrani', '17-MAY-1989', 9000, 'Jeddah,Al Sanabel', 'Female', null, 4);
+
+
+
+UPDATE Department SET Manager_ID = 3 WHERE department_id = 1;
+UPDATE Department SET Manager_ID = 2 WHERE department_id = 2;
+UPDATE Department SET Manager_ID = 4 WHERE department_id = 3;
+UPDATE Department SET Manager_ID = 1 WHERE department_id = 4;
+
+
+
+UPDATE Employee SET Supervisor_ID = 1 WHERE employee_id = 2;
+UPDATE Employee SET Supervisor_ID = 1 WHERE employee_id = 3;
+UPDATE Employee SET Supervisor_ID = 1 WHERE employee_id = 4;
+UPDATE Employee SET Supervisor_ID = 4 WHERE employee_id = 5;
+UPDATE Employee SET Supervisor_ID = 4 WHERE employee_id = 6;
+UPDATE Employee SET Supervisor_ID = 2 WHERE Employee_ID = 7;
+UPDATE Employee SET Supervisor_ID = 3 WHERE Employee_ID = 8;
+
+INSERT into Room values(1,'Floor 2,J1');
+INSERT into Room values(2,'Floor 1,E5');
+INSERT into Room values(3,'Floor 1,G5');
+INSERT into Room values(4,'Floor 2,GG');
+
+INSERT into Doctor values(1, 'Zaki', 'Alsubhi', '2-APR-1990', 23000, 'Jeddah,Al Sanabel', 'Male', 1, 1);
+INSERT into Doctor values(2 , 'Marwan', 'Khalil', '1-MAR-1995', 25000, 'Jeddah,Al Sharafeyah', 'Male', 2, 2);
+INSERT into Doctor values(3 , 'Radahn', 'Almalki', '15-JUN-1993', 15000, 'Jeddah,Al Safa', 'Male', 3, 3);
+INSERT into Doctor values(4 ,'Nawaf','ALzahrani ','30-SEP-1993',22000,'Jeddah,Al Safa', 'Male',  4, 4);
+
+
+INSERT into patient values(1, 'Ahmed', 'AlGhamdi', '2-APR-1990', 'Jeddah,Al Sanabel', 'Male');
+INSERT into patient values(2, 'Ahmed', 'bader', '9-APR-1990', 'Jeddah,Al Sanabel', 'Male');
+INSERT into patient values(3, 'Bader', 'saleh', '9-SEP-1987', 'Jeddah,Al Safa', 'Male');
+INSERT into patient values(4, 'Sara', 'saleh', '10-SEP-1987', 'Jeddah,Al Safa', 'Female');
+
+
+INSERT into Attends values (1,1);
+INSERT into Attends values (2,2);
+INSERT into Attends values (3,3);
+INSERT into Attends values (4,4);
+
+commit;
+
+
