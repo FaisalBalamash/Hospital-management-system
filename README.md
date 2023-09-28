@@ -1,6 +1,7 @@
 # Hospital Management Application
 
-This Java Swing-based application facilitates hospital management tasks by offering dedicated screens for Customers, Delivery Men, and Admin, each tailored to specific functionalities. The application also integrates with an SQL database to store and retrieve information related to departments, employees, rooms, doctors, patients, and their interactions.
+This Java Swing-based application streamlines hospital management tasks, offering dedicated screens for administrators, doctors, nurses, and patients. The application integrates with an SQL database to store and retrieve information related to departments, employees, rooms, doctors, patients, and their interactions.
+
 
 ## Table of Contents
 
@@ -9,7 +10,8 @@ This Java Swing-based application facilitates hospital management tasks by offer
 - [Database Setup](#database-setup)
 - [User Roles and Features](#user-roles-and-features)
 - [Contributing](#contributing)
-- 
+
+
 ## Getting Started
 
 To get started, follow these steps to clone the repository and compile the Java source code:
@@ -19,41 +21,49 @@ To get started, follow these steps to clone the repository and compile the Java 
     javac Main.java
     java Main
 
-Prerequisites
+## Prerequisites
 
-    Java Development Kit (JDK) 8 or higher.
-    An integrated development environment (IDE) like Eclipse or IntelliJ IDEA is recommended for development.
-    An SQL database management system (e.g., Oracle, MySQL) installed and configured.
+ - Java Development Kit (JDK) 8 or higher.
+ - An integrated development environment (IDE) like Eclipse or IntelliJ
+   IDEA is recommended for development.
+ - An SQL database management system (e.g., Oracle, MySQL) installed and
+   configured.
 
-Database Setup
+## Database Setup
 
 To set up the SQL database, execute the following SQL commands to create tables and insert sample data:
 
-sql
+ - SQL commands to create tables and insert sample data go here
+  
+ - List item
 
--- SQL commands to create tables and insert sample data go here
--- (Use the provided SQL script or adapt it to your database system)
+(Use the provided SQL script or adapt it to your database system)
 
-User Roles and Features
-Customer
+## User Roles and Features
+### Administrator
 
-    Make Order: Place new delivery orders, specifying delivery details and items.
-    Change Password: Update account password for security.
-    View Order: Review the status and details of previously placed orders.
+-   **Manage Departments:** Add, edit, or delete hospital departments.
+-   **Manage Employees:** Add, edit, or delete employee records, including doctors and nurses.
+-   **Manage Rooms:** Add, edit, or delete hospital rooms and assign them to departments.
+-   **View Reports:** Generate reports on hospital operations, such as patient admissions and discharges.
 
-Admin
+### Doctor
 
-    Add Delivery: Add new delivery drivers to the system.
-    Add Product: Manage the product catalog by adding new items.
-    View Customers: Access a list of registered customers for administrative purposes.
-    View Delivery: Monitor the status and performance of delivery drivers.
-    View Food: Browse and manage the food items available for delivery.
+-   **View Patients:** Access patient records, view medical history, and update patient information.
+-   **Prescribe Medication:** Create and manage prescriptions for patients.
+-   **Schedule Appointments:** Schedule patient appointments and view appointment details.
 
-Delivery Man
+### Nurse
 
-    View Orders: Access a list of pending delivery orders.
-    Accept Order: Accept or decline delivery orders.
-    Change Password: Update account password for security.
+-   **Record Patient Data:** Record vital signs, medications, and other patient data.
+-   **View Patient Information:** Access patient records to provide patient care.
+-   **Assist Doctors:** Collaborate with doctors by updating patient information and assisting with procedures.
+
+### Patient
+
+-   **View Medical Records:** Access personal medical records, including diagnoses, prescriptions, and treatment plans.
+-   **Request Appointments:** Request appointments with doctors and view appointment schedules.
+-   **View Bills:** View and pay medical bills online.
 
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
@@ -62,5 +72,3 @@ Contributions are welcome! If you'd like to contribute to this project, please f
     Make your changes and commit them with descriptive messages.
     Push your changes to your fork.
     Create a pull request to this repository's main branch.
-
-License
