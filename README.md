@@ -12,15 +12,6 @@ This Java Swing-based application streamlines hospital management tasks, offerin
 - [Contributing](#contributing)
 
 
-## Getting Started
-
-To get started, follow these steps to clone the repository and compile the Java source code:
-
-    git clone https://github.com/FaisalBalamash/hospital-management-application.git
-    cd hospital-management-app
-    javac Main.java
-    java Main
-
 ## Prerequisites
 
  - Java Development Kit (JDK) 8 or higher.
